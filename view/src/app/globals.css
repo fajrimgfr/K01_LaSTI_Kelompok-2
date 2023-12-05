@@ -19,4 +19,7 @@
 body {
   margin: 0px;
   padding: 0px;
+  width: 100%;
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@700&family=Poppins:wght@500&display=swap');
