@@ -26,3 +26,8 @@ export async function POST(request) {
         message: "Berhasil menambahkan kamar",
     });
 }
+
+export async function GET(req) {
+    let kamar =  await Kamar.find({});
+    return NextResponse.json(kamar);
+}
