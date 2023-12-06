@@ -13,7 +13,7 @@ const Navbar = () => {
     <>
       <Register open={open2} setOpen={setOpen2} />
       <Login open={open} setOpen={setOpen}  />
-      <div className='h-[9vh] bg-neutral-950 flex justify-between items-center px-[165px]'>
+      <div className='h-[9vh] bg-neutral-950 flex justify-between items-center px-[80px] lg:px-[165px]'>
         <div className='flex justify-center items-center'>
           <a href="/" className='bg-white rounded-xl w-[140px] p-0 font-bold flex text-2xl justify-center items-center'>
             <span className='rounded-xl basis-1/2 bg-orange-500 text-white text-center pb-0.5' >Tech</span>
