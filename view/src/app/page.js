@@ -1,11 +1,13 @@
 import Image from 'next/image'
 
-import HomePage from '@/page/homePage'
+import HomePage from '@/pages/HomePage'
+import Rooms from '@/pages/Rooms'
 
 export default function Home() {
   return (
     <>
-      <HomePage />
+      <Rooms />
+      {/* <HomePage /> */}
     </>
   )
 }
