@@ -3,7 +3,7 @@ import room from '../../public/room.jpg'
 
 function ListKamar() {
   return (
-    <button className='w-[300px] h-[292px]'>
+    <a href="/rooms/detil-kamar" className='w-[300px] mx-auto h-[292px]'>
         <img src={room.src} alt="Foto Kamar" className='w-full h-[225px]' />
         <div className="w-full h-[67px] p-2.5 flex flex-col justify-center items-start gap-[3px]">
             <div className="self-stretch h-[47px] flex flex-col justify-center items-center gap-[3px]">
@@ -13,7 +13,7 @@ function ListKamar() {
                 </div>
             </div>
         </div>
-    </button>
+    </a>
   )
 }
 

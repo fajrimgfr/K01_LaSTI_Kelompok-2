@@ -1,12 +1,13 @@
-import Image from 'next/image'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 import background from '../../public/background.jpg'
+import { Disclosure } from '@headlessui/react';
+
 
 export default function Home() {
   return (
     <>
-      <div className="w-full h-[598px] px-[175px] flex flex-col justify-center items-start gap-[16px]" style={{backgroundColor: "#cccccc",backgroundPosition:"center",backgroundRepeat: "no-repeat", backgroundSize:"cover",height:"90vh", backgroundImage:`linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url(${background.src})` }}>
+      <div className="w-full h-[91vh] px-[175px] flex flex-col justify-center items-start gap-[16px]" style={{backgroundColor: "#cccccc",backgroundPosition:"center",backgroundRepeat: "no-repeat", backgroundSize:"cover", backgroundImage:`linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url(${background.src})` }}>
         <div className="w-[567px] h-[126px] flex items-center">
           <p className="text-white text-[58px] font-normal font-['DM Serif Text'] leading-[58px] tracking-tight">TechNest</p>
         </div>
