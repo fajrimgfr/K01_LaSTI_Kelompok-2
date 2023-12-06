@@ -10,8 +10,8 @@ const Navbar = () => {
         </button>
       </div>
       <div className='flex justify-between items-center gap-[48px]'>
-        <button className="text-center w-20 text-white hover:font-bold text-base font-['Inter']">Home</button>
-        <button className="text-center w-20 text-white hover:font-bold text-base font-['Inter']">Rooms</button>
+        <a href="/" className="text-center w-20 text-white hover:font-bold text-base font-['Inter']">Home</a>
+        <a href="/rooms" className="text-center w-20 text-white hover:font-bold text-base font-['Inter']">Rooms</a>
         <button className="text-center w-20 whitespace-nowrap text-white hover:font-bold text-base font-['Inter']">Contact Us</button>
         <div className='flex justify-between items-center gap-[16px]'>
           <button className="w-[110px] text-center bg-neutral-950  border border-white py-0.5 rounded-lg text-white hover:text-black hover:bg-white text-base font-normal font-['Inter']">
