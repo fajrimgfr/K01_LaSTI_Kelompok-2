@@ -1,7 +1,7 @@
 // Import library
 import { NextResponse } from "next/server";
-import Kamar from "../../model/kamar";
-import dbConnect from "../../utils/dbConnect";
+import Kamar from "@/app/model/kamar";
+import dbConnect from "@/app/utils/dbConnect";
 
 // Connect
 dbConnect()
