@@ -2,7 +2,7 @@
 const mongoose = require("mongoose");
 
 // Schema Kamar
-const kamarSchema = new mongoose.Schema({
+const Kamar = new mongoose.Schema({
     noKamar: {
         type: String,
         required: true,
@@ -49,4 +49,4 @@ const kamarSchema = new mongoose.Schema({
 
 // Export
 mongoose.models = {}
-module.exports = mongoose.model("kamarSchema", kamarSchema)
+module.exports = mongoose.model("Kamar", Kamar)
