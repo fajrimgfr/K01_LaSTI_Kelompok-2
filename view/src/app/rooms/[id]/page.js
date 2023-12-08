@@ -110,7 +110,6 @@ const DetilKamar = async () => {
                     <div className="text-center text-white text-base font-bold font-['Inter'] capitalize">Register</div>
                   </button> :
                 <>
-               
                 <button type='submit' disabled className="w-full h-16 bg-orange-200 rounded-lg border border-white justify-center items-center flex">
                   <div className="text-center text-white text-base font-bold font-['Inter'] capitalize">Register</div>
                 </button>
@@ -123,7 +122,6 @@ const DetilKamar = async () => {
             </div>
           </div>
         </div>
-      </div>
     </>
   );
 };
