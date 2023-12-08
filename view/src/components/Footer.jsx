@@ -10,10 +10,10 @@ const Footer = () => {
           <button className='basis-1/3 text-white w-44 rounded py-3 m-auto mb-9 bg-orange-500 hover:bg-orange-800 active:bg-orange-900' style={{fontFamily: "'Poppins', sans-serif"}}>Contact Us</button>
           <div className='flex flex-col md:flex-row gap-3 border-t py-3 justify-between items-center'>
             <div className='w-60 pt-4 flex justify-center'>
-              <button className='bg-white rounded-2xl w-52 p-0 font-bold flex text-4xl justify-center'>
+              <a href="/" className='bg-white rounded-2xl w-52 p-0 font-bold flex text-4xl justify-center'>
                 <span className='rounded-2xl basis-1/2 bg-orange-500 text-white text-center pb-1' >Tech</span>
                 <span className='basis-1/2 text-center'>Nest</span>
-              </button>
+              </a>
             </div>
             <div className='text-center'>
               <p className='text-white' style={{fontFamily: "'Poppins', sans-serif"}}>© {new Date().getFullYear()} TechNest</p>
