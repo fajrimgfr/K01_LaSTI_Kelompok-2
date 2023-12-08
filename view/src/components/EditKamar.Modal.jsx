@@ -10,12 +10,12 @@ export default function EditKamarModal({ kamarId }) {
     foto: "",
     harga: 0,
     lantai: "",
-    status: true,
+    status: "",
     fasilitas: "",
     luas: "",
     posisi: "",
-    idUser: "12",
-    namaUser: "ves",
+    idUser: "-",
+    namaUser: "-",
   });
 
   useEffect(() => {
