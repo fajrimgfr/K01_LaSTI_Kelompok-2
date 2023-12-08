@@ -72,8 +72,8 @@ const DetilKamar = async () => {
                 <div className="h-16 w-full flex-col justify-start items-start gap-1 flex">
                   {detailKamar[0].status === "Available" ?
                   <button className="w-full h-16 bg-orange-500 rounded-lg border border-white justify-center items-center flex hover:bg-orange-800 active:bg-orange-900">
-                  <div className="text-center text-white text-base font-bold font-['Inter'] capitalize">Register</div>
-                </button> :
+                    <div className="text-center text-white text-base font-bold font-['Inter'] capitalize">Register</div>
+                  </button> :
                 <>
                
                 <button disabled className="w-full h-16 bg-orange-200 rounded-lg border border-white justify-center items-center flex">
