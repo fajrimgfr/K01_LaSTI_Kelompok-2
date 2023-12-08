@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import React from "react";
+import { AlertDialog, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from "@/components/ui/alert-dialog";
+
 export default function AddKamarModal() {
   const [newKamar, setNewKamar] = useState({
     noKamar: "",
@@ -12,8 +14,8 @@ export default function AddKamarModal() {
     fasilitas: "",
     luas: "",
     posisi: "",
-    idUser: "12",
-    namaUser: "ves",
+    idUser: "-",
+    namaUser: "-",
   });
 
   const handleSubmit = async () => {
@@ -45,6 +47,7 @@ export default function AddKamarModal() {
         }),
         headers: { "Content-Type": "application/json" },
       });
+      window.location.reload();
     } catch (error) {
       console.log(error);
     }
@@ -71,44 +74,53 @@ export default function AddKamarModal() {
   }
 
   return (
-    <div className="App">
-      <img src={newKamar.foto} alt="" />
-      <div>{`noKamar: ${newKamar.noKamar}`}</div>
-      <div>{`harga: ${newKamar.harga}`}</div>
-      <div>{`lantai: ${newKamar.lantai}`}</div>
-      <div>{`status: ${newKamar.status}`}</div>
-      <div>{`fasilitas: ${newKamar.fasilitas}`}</div>
-      <div>{`luas: ${newKamar.luas}`}</div>
-      <div>{`posisi: ${newKamar.posisi}`}</div>
-      <div>{`idUser: ${newKamar.idUser}`}</div>
-      <div>{`namaUser: ${newKamar.namaUser}`}</div>
-      <form onSubmit={handleSubmit} className="flex flex-col">
-        <label htmlFor="file-upload" className="custom-file-upload">
-          <input type="file" name="foto" accept=".jpeg, .png, .jpg" onChange={(e) => handleFileUpload(e)} />
-        </label>
-        <label htmlFor="noKamar">
-          <input type="text" name="noKamar" placeholder="Masukkan nomor kamar" onChange={(e) => setNewKamar({ ...newKamar, noKamar: e.target.value })} className="py-1 px-2 border-2 rounded-md" />
-        </label>
-        <label htmlFor="harga">
-          <input type="number" name="lantai" placeholder="Masukkan harga" onChange={(e) => setNewKamar({ ...newKamar, harga: e.target.value })} className="py-1 px-2 border-2 rounded-md" />
-        </label>
-        <label htmlFor="lantai">
-          <input type="text" name="lantai" placeholder="Masukkan lantai" onChange={(e) => setNewKamar({ ...newKamar, lantai: e.target.value })} className="py-1 px-2 border-2 rounded-md" />
-        </label>
-        <label htmlFor="fasilitas">
-          <input type="text" name="fasilitas" placeholder="Masukkan fasilitas" onChange={(e) => setNewKamar({ ...newKamar, fasilitas: e.target.value })} className="py-1 px-2 border-2 rounded-md" />
-        </label>
-        <label htmlFor="luas">
-          <input type="text" name="luas" placeholder="Masukkan luas" onChange={(e) => setNewKamar({ ...newKamar, luas: e.target.value })} className="py-1 px-2 border-2 rounded-md" />
-        </label>
-        <label htmlFor="posisi">
-          <input type="text" name="posisi" placeholder="Masukkan posisi" onChange={(e) => setNewKamar({ ...newKamar, posisi: e.target.value })} className="py-1 px-2 border-2 rounded-md" />
-        </label>
-
-        <button type="submit" className="bg-orange-500 hover:bg-orange-800 text-white rounded-md p-2 cursor-pointer">
-          Submit
-        </button>
-      </form>
-    </div>
+    <AlertDialog>
+      <AlertDialogTrigger>
+        <div className="text-lg text-center bg-orange-500 hover:bg-orange-800 font-semibold text-white rounded-md px-4 py-2 cursor-pointer">add kamar</div>
+      </AlertDialogTrigger>
+      <AlertDialogContent className="bg-white border rounded-lg">
+        <AlertDialogHeader>
+          <AlertDialogTitle>
+            <div className="font-bold">Add Kamar Baru</div>
+          </AlertDialogTitle>
+          <AlertDialogDescription>
+            <form onSubmit={handleSubmit}>
+              <div className="grid grid-cols-2 gap-2">
+                <label htmlFor="file-upload" className="custom-file-upload">
+                  <input required type="file" name="foto" accept=".jpeg, .png, .jpg" onChange={(e) => handleFileUpload(e)} className="flex py-1 px-2 rounded-md w-full cursor-pointer" />
+                </label>
+                <label htmlFor="noKamar">
+                  <input required type="text" name="noKamar" placeholder="Masukkan nomor kamar" onChange={(e) => setNewKamar({ ...newKamar, noKamar: e.target.value })} className="flex py-1 px-2 border-2 rounded-md w-full" />
+                </label>
+                <label htmlFor="harga">
+                  <input required type="number" name="lantai" placeholder="Masukkan harga" onChange={(e) => setNewKamar({ ...newKamar, harga: e.target.value })} className="flex py-1 px-2 border-2 rounded-md w-full" />
+                </label>
+                <label htmlFor="lantai">
+                  <input required type="text" name="lantai" placeholder="Masukkan lantai" onChange={(e) => setNewKamar({ ...newKamar, lantai: e.target.value })} className="flex py-1 px-2 border-2 rounded-md w-full" />
+                </label>
+                <label htmlFor="fasilitas">
+                  <input required type="text" name="fasilitas" placeholder="Masukkan fasilitas" onChange={(e) => setNewKamar({ ...newKamar, fasilitas: e.target.value })} className="flex py-1 px-2 border-2 rounded-md w-full" />
+                </label>
+                <label htmlFor="luas">
+                  <input required type="text" name="luas" placeholder="Masukkan luas" onChange={(e) => setNewKamar({ ...newKamar, luas: e.target.value })} className="flex py-1 px-2 border-2 rounded-md w-full" />
+                </label>
+                <label htmlFor="posisi">
+                  <input required type="text" name="posisi" placeholder="Masukkan posisi" onChange={(e) => setNewKamar({ ...newKamar, posisi: e.target.value })} className="flex py-1 px-2 border-2 rounded-md w-full" />
+                </label>
+                <label htmlFor="status">
+                  <input required type="text" name="status" placeholder="Masukkan status" onChange={(e) => setNewKamar({ ...newKamar, status: e.target.value })} className="flex py-1 px-2 border-2 rounded-md w-full" />
+                </label>
+              </div>
+              <div className="mt-5 grid grid-cols-2 gap-2">
+                <AlertDialogCancel className="w-full hover:bg-gray-200">Cancel</AlertDialogCancel>
+                <button type="submit" className="w-full bg-orange-500 hover:bg-orange-800 text-white rounded-md p-2 cursor-pointer">
+                  Submit
+                </button>
+              </div>
+            </form>
+          </AlertDialogDescription>
+        </AlertDialogHeader>
+      </AlertDialogContent>
+    </AlertDialog>
   );
 }

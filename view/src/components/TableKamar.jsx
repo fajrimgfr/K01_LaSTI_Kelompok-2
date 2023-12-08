@@ -1,5 +1,7 @@
 import React from "react";
 import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import EditKamarModal from "./EditKamar.Modal";
+import DeleteKamarModal from "./DeleteKamarModal";
 
 const getKamars = async () => {
   const response = await fetch("http://localhost:3000/api/kamar", {
@@ -19,16 +21,16 @@ export default async function TableKamar() {
   const kamars = await getKamars();
   return (
     <div>
-      <Table>
-        <TableCaption>Caption</TableCaption>
+      <Table className="bg-gray-50">
         <TableHeader>
           <TableRow>
-            <TableHead className="w-[150px]">No. Kamar</TableHead>
-            <TableHead>Lantai</TableHead>
-            <TableHead>Posisi</TableHead>
-            <TableHead>Status</TableHead>
-            <TableHead>Harga</TableHead>
-            <TableHead className="text-right">Manage</TableHead>
+            <TableHead className="font-semibold">No. Kamar</TableHead>
+            <TableHead className="font-semibold">Lantai</TableHead>
+            <TableHead className="font-semibold">Luas</TableHead>
+            <TableHead className="font-semibold">Posisi</TableHead>
+            <TableHead className="font-semibold">Status</TableHead>
+            <TableHead className="font-semibold">Harga</TableHead>
+            <TableHead className="font-semibold">Manage</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -37,13 +39,18 @@ export default async function TableKamar() {
               <TableRow key={kamar._id}>
                 <TableCell className="font-medium">{kamar.noKamar}</TableCell>
                 <TableCell>{kamar.lantai}</TableCell>
+                <TableCell>{kamar.luas}</TableCell>
                 <TableCell>{kamar.posisi}</TableCell>
                 <TableCell>{kamar.status}</TableCell>
                 <TableCell>{kamar.harga}</TableCell>
-                <TableCell className="text-right bg-red-500 flex justify-right w-fit">
-                  <div className="flex w-fit">
-                    <div className="bg-black">Edit</div>
-                    <div className="bg-gray-500">Delete</div>
+                <TableCell className="flex w-fit">
+                  <div className="flex w-fit gap-2">
+                    <div className="bg-black">
+                      <EditKamarModal kamarId={kamar._id} />
+                    </div>
+                    <div className="bg-gray-500">
+                      <DeleteKamarModal kamarId={kamar._id} />
+                    </div>
                   </div>
                 </TableCell>
               </TableRow>

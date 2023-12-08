@@ -20,8 +20,14 @@ export default async function page() {
   const kamars = await getKamars();
   return (
     <div className="flex justify-center items-center">
-      <div className="container">
-        <AddKamarModal />
+      <div className="container py-5 gap-5">
+        <div className="flex justify-between">
+          <div className="text-2xl font-bold">Daftar Kamar</div>
+          <div className="flex gap-2 items-center text-md text-red-500 font-medium">
+            <div>Klik button dikanan untuk menambah kamar</div>
+            <AddKamarModal />
+          </div>
+        </div>
         <TableKamar />
       </div>
     </div>
