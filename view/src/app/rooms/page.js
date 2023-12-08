@@ -11,7 +11,6 @@ const getKamars = async () => {
     if (!response.ok) {
         throw new Error('Failed to fetch data')
     }
-
     return response.json();
 }
 
@@ -27,7 +26,7 @@ async function Rooms() {
         </div>
         <div className='px-[60px] py-[32px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-[40px] justify-center'>
             {kamars.length > 0 && kamars.map((kamar) => (
-                <ListKamar noKamar={kamar.noKamar} harga={kamar.harga} key={kamar._id} tautan={`/rooms/${kamar._id}`} />
+                <ListKamar foto={kamar.foto} noKamar={kamar.noKamar} harga={kamar.harga} key={kamar._id} tautan={`/rooms/${kamar._id}`} />
             ))}
         </div>
         <div className="h-[87px] px-[175px] py-6 justify-center sm:justify-end items-center gap-4 flex">
