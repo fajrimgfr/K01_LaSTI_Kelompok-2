@@ -1,10 +1,11 @@
-"use client";
+"use client"
 
-import React, { useState } from 'react'
+import React from 'react'
 import room from '../../../../public/room.jpg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLocationDot, faArrowUpFromBracket, faCalendarDay } from '@fortawesome/free-solid-svg-icons'
 import { useParams } from 'next/navigation'
+import Navbar from '@/components/Navbar';
 
 const getDetailKamar = async () => {
   const params = useParams();
@@ -59,6 +60,7 @@ const DetilKamar = async () => {
 
   return (
     <>
+      <Navbar isLogin={true} setIsLogin={{}} />
       <div className='min-h-[54vh]'>
         <div className="w-full h-[67px] px-[175px] py-6 justify-start items-center gap-10 inline-flex">
           <div><span className="text-black text-base font-normal font-['Inter']">Home &gt; Rooms &gt; </span><span className="text-black text-base font-bold font-['Inter']">Kamar {detailKamar[0].noKamar}</span></div>
