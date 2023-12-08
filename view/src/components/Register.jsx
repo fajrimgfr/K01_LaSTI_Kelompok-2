@@ -17,8 +17,8 @@ export default function Register(props) {
     if (name === "phoneNumber" || name === "age") {
       if (value.substring(value.length - 1).charCodeAt(0) >= 48 && value.substring(value.length - 1).charCodeAt(0) <= 57) {
         setRegister(prevValue => ({...prevValue, [name]: value}));
-        setWarning("")
-        console.log("duh")
+        setWarning("");
+        console.log("duh");
       } else {
         setWarning("Hanya menerima input angka.")
         console.log("yeh")

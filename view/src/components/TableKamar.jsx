@@ -45,10 +45,10 @@ export default async function TableKamar() {
                 <TableCell>{kamar.harga}</TableCell>
                 <TableCell className="flex w-fit">
                   <div className="flex w-fit gap-2">
-                    <div className="bg-black">
+                    <div className="">
                       <EditKamarModal kamarId={kamar._id} />
                     </div>
-                    <div className="bg-gray-500">
+                    <div className="">
                       <DeleteKamarModal kamarId={kamar._id} />
                     </div>
                   </div>
