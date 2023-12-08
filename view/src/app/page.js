@@ -9,15 +9,18 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { useState } from 'react';
+import Navbar from '@/components/Navbar';
 
 export default function Home() {
   const [expanded, setExpanded] = useState(false);
+  const [isLogin, setIsLogin] = useState(false);
 
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
   };
   return (
     <>
+      <Navbar isLogin={isLogin} setIsLogin={setIsLogin} />
       <div className="w-full h-[91vh] px-[175px] flex flex-col justify-center items-start gap-[16px]" style={{backgroundColor: "#cccccc",backgroundPosition:"center",backgroundRepeat: "no-repeat", backgroundSize:"cover", backgroundImage:`linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url(${background.src})` }}>
         <div className="w-[567px] h-[126px] flex items-center">
           <p className="text-white text-[58px] font-normal font-['DM Serif Text'] leading-[58px] tracking-tight">TechNest</p>

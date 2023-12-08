@@ -1,5 +1,6 @@
 import React from 'react'
 import ListKamar from '@/components/ListKamar'
+import Navbar from '@/components/Navbar'
 
 const getKamars = async () => {
     const response = await fetch('http://localhost:3000/api/kamar', {
@@ -20,6 +21,7 @@ async function Rooms() {
     // console.log(kamars);
 
   return (
+    <><Navbar isLogin={true} setIsLogin={{}} />
     <div className='min-h-[54vh]'>
         <div className="w-full h-[67px] px-[175px] py-6 justify-center sm:justify-start items-center gap-10 inline-flex">
             <div className="text-black text-base font-['Inter']">Home &gt; <span className="font-bold">Catalogue</span></div>
@@ -38,6 +40,7 @@ async function Rooms() {
             </button>
         </div>
     </div>
+    </>
   )
 }
 

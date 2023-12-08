@@ -7,21 +7,21 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { useRouter } from 'next/navigation';
 
-const Navbar = () => {
-  const [isLogin, setIsLogin] = useState(false);
+const Navbar = (props) => {
+  // const [isLogin, setIsLogin] = useState(false);
   const [open, setOpen] = useState(false);
   const [open2, setOpen2] = useState(false);
   const router = useRouter();
 
   function signOut() {
-    setIsLogin(false)
+    // props.setIsLogin(false)
     router.push(`http://localhost:3000/`)
   }
 
   return (
     <>
       <Register open={open2} setOpen={setOpen2} />
-      <Login open={open} setOpen={setOpen} setIsLogin={setIsLogin}  />
+      <Login open={open} setOpen={setOpen} setIsLogin={props.setIsLogin}  />
       <div className='h-[9vh] bg-neutral-950 flex justify-between items-center px-[80px] lg:px-[165px]'>
         <div className='flex justify-center items-center'>
           <a href="/" className='bg-white rounded-xl w-[140px] p-0 font-bold flex text-2xl justify-center items-center'>
@@ -31,13 +31,13 @@ const Navbar = () => {
         </div>
         <div className='hidden lg:flex justify-between items-center gap-[48px]'>
           <a href="/" className="text-center w-20 text-white hover:font-bold text-base font-['Inter']">Home</a>
-          {isLogin ? 
+          {props.isLogin ? 
             <a href="/rooms" className="text-center w-20 text-white hover:font-bold text-base font-['Inter']">Rooms</a> :
             <></>
           }
           <a href="/" className="text-center w-20 whitespace-nowrap text-white hover:font-bold text-base font-['Inter']">Contact Us</a>
           <div className='flex justify-between items-center gap-[16px]'>
-            {!isLogin ? 
+            {!props.isLogin ? 
             <>
               <button onClick={() => setOpen2(true)} className="w-[110px] text-center bg-neutral-950  border border-white py-0.5 rounded-lg text-white hover:text-black hover:bg-white text-base font-normal font-['Inter']">
                 Register
@@ -81,7 +81,7 @@ const Navbar = () => {
                     </a>
                   )}
                 </Menu.Item>
-                {isLogin ? 
+                {props.isLogin ? 
                   <Menu.Item>
                     {({ active }) => (
                       <a
@@ -110,7 +110,7 @@ const Navbar = () => {
                 </Menu.Item>
               </div>
               <div className="px-1 py-1">
-                {!isLogin ? <>
+                {!props.isLogin ? <>
                 <Menu.Item>
                   {({ active }) => (
                     <button
