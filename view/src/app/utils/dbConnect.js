@@ -2,10 +2,7 @@
 const mongoose = require("mongoose");
 
 const dbConnect = async () => {
-    await mongoose.connect("mongodb+srv://willly:tubeslasti@technest.cjzfojj.mongodb.net/?retryWrites=true&w=majority&ssl=true", {
-        useNewUrlParser: true,
-        useUnifiedTopology: true
-    })
+    await mongoose.connect("mongodb+srv://willly:tubeslasti@technest.cjzfojj.mongodb.net/?retryWrites=true&w=majority&ssl=true")
     .then(() => {
         console.log("Database connected");
     })
