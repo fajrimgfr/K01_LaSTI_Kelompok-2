@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React, { useState } from 'react'
 import room from '../../../../public/room.jpg'
@@ -64,8 +64,8 @@ const DetilKamar = async () => {
           <div><span className="text-black text-base font-normal font-['Inter']">Home &gt; Rooms &gt; </span><span className="text-black text-base font-bold font-['Inter']">Kamar {detailKamar[0].noKamar}</span></div>
         </div>
         <div className="w-full min-h-[416px] gap-[30px] flex-col md:flex-row px-[165px] py-6 justify-between items-start md:gap-1 flex">
-            {/* <div className="w-80 h-[427px] flex-col justify-start items-start inline-flex"> */}
-              {/* <div className="self-stretch h-80 origin-top-left -rotate-45 justify-start items-start inline-flex">
+          {/* <div className="w-80 h-[427px] flex-col justify-start items-start inline-flex"> */}
+          {/* <div className="self-stretch h-80 origin-top-left -rotate-45 justify-start items-start inline-flex">
                 <div className="w-[0px] self-stretch origin-top-left rotate-[3.48deg] border" />
               </div> */}
             <div className='flex justify-start'>
@@ -121,10 +121,11 @@ const DetilKamar = async () => {
                 </form>
               </div>
             </div>
+          </div>
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default DetilKamar
+export default DetilKamar;
