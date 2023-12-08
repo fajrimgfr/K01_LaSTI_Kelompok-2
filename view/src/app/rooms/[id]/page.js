@@ -123,7 +123,6 @@ const DetilKamar = async () => {
             </div>
           </div>
         </div>
-      </div>
     </>
   );
 };
