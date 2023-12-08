@@ -5,12 +5,23 @@ import { faX } from '@fortawesome/free-solid-svg-icons'
 
 export default function Register(props) {
   const [register, setRegister] = useState({email: "",name: "", phoneNumber: "", age: "", password: "", passwordConfirm: ""})
+  const [warning, setWarning] = useState("");
   const cancelButtonRef = useRef(null)
 
   function ubahRegister(event) {
     const {name, value} = event.target;
 
     setRegister(prevValue => ({...prevValue, [name]: value}));
+  }
+
+  function submitForm(event) {
+    event.preventDefault();
+    if (register.password !== register.passwordConfirm) {
+      setWarning("Konfirmasi password salah.")
+    } else {
+      setWarning("");
+      props.setOpen(false);
+    }
   }
 
   return (
@@ -50,45 +61,51 @@ export default function Register(props) {
                         <FontAwesomeIcon className='w-[12px]' icon={faX} />
                     </button>
                 </Dialog.Title>
-                <div className="w-full flex justify-between items-center my-[24px] gap-[24px]">
-                    <div className="basis-1/2">
-                        <label for="email" className="block text-zinc-800 text-sm font-semibold font-['Open Sans'] leading-tight">Email</label>
-                        <input type="email" id="email" name="email" placeholder="Input your email" onChange={ubahRegister} value={register.email} className="w-full h-12 p-3.5 rounded-lg border border-neutral-500" />
-                    </div>
-                    <div className="basis-1/2">
-                        <label for="name" className="block text-zinc-800 text-sm font-semibold font-['Open Sans'] leading-tight">Name</label>
-                        <input type="text" id="name" name="name" placeholder="Input your name" onChange={ubahRegister} value={register.name} className="w-full h-12 p-3.5 rounded-lg border border-neutral-500" />
-                    </div>
-                </div>
-                <div className="w-full flex justify-between items-center mb-[24px] gap-[24px]">
-                    <div className="basis-1/2">
-                        <label for="phoneNumber" className="block text-zinc-800 text-sm font-semibold font-['Open Sans'] leading-tight">Phone Number</label>
-                        <input type="text" id="phoneNumber" name="phoneNumber" placeholder="Input your phone number" onChange={ubahRegister} value={register.phoneNumber} className="w-full h-12 p-3.5 rounded-lg border border-neutral-500" />
-                    </div>
-                    <div className="basis-1/2">
-                        <label for="age" className="block text-zinc-800 text-sm font-semibold font-['Open Sans'] leading-tight">Age</label>
-                        <input type="text" id="age" name="age" placeholder="Input your age" onChange={ubahRegister} value={register.age} className="w-full h-12 p-3.5 rounded-lg border border-neutral-500" />
-                    </div>
-                </div>
-                <div className="w-full flex justify-between items-center mb-[24px] gap-[24px]">
-                    <div className="basis-1/2">
-                        <label for="password" className="block text-zinc-800 text-sm font-semibold font-['Open Sans'] leading-tight">Password</label>
-                        <input type="password" id="password" name="password" placeholder="Input your password" onChange={ubahRegister} value={register.password} className="w-full h-12 p-3.5 rounded-lg border border-neutral-500" />
-                    </div>
-                    <div className="basis-1/2">
-                        <label for="passwordConfirm" className="block text-zinc-800 text-sm font-semibold font-['Open Sans'] leading-tight">Password Confirmation</label>
-                        <input type="password" id="passwordConfirm" name="passwordConfirm" placeholder="Reinput your password" onChange={ubahRegister} value={register.passwordConfirm} className="w-full h-12 p-3.5 rounded-lg border border-neutral-500" />
-                    </div>
-                </div>
-                <div className="flex flex-row-reverse">
-                  <button
-                    type="button"
-                    className="h-10 text-center rounded-lg bg-orange-500 px-4 py-2 text-sm font-semibold text-white font-['Open Sans'] leading-tight shadow-sm hover:bg-red-800 active:bg-orange-900 ml-3 w-auto"
-                    onClick={() => props.setOpen(false)}
-                  >
-                    Register
-                  </button>
-                </div>
+                <form onSubmit={submitForm}>
+                  <div className="w-full flex justify-between items-center my-[24px] gap-[24px]">
+                      <div className="basis-1/2">
+                          <label for="email" className="block text-zinc-800 text-sm font-semibold font-['Open Sans'] leading-tight">Email</label>
+                          <input required type="email" id="email" name="email" placeholder="Input your email" onChange={ubahRegister} value={register.email} className="w-full h-12 p-3.5 rounded-lg border border-neutral-500" />
+                      </div>
+                      <div className="basis-1/2">
+                          <label for="name" className="block text-zinc-800 text-sm font-semibold font-['Open Sans'] leading-tight">Name</label>
+                          <input required type="text" id="name" name="name" placeholder="Input your name" onChange={ubahRegister} value={register.name} className="w-full h-12 p-3.5 rounded-lg border border-neutral-500" />
+                      </div>
+                  </div>
+                  <div className="w-full flex justify-between items-center mb-[24px] gap-[24px]">
+                      <div className="basis-1/2">
+                          <label for="phoneNumber" className="block text-zinc-800 text-sm font-semibold font-['Open Sans'] leading-tight">Phone Number</label>
+                          <input required type="text" id="phoneNumber" name="phoneNumber" placeholder="Input your phone number" onChange={ubahRegister} value={register.phoneNumber} className="w-full h-12 p-3.5 rounded-lg border border-neutral-500" />
+                      </div>
+                      <div className="basis-1/2">
+                          <label for="age" className="block text-zinc-800 text-sm font-semibold font-['Open Sans'] leading-tight">Age</label>
+                          <input required type="text" id="age" name="age" placeholder="Input your age" onChange={ubahRegister} value={register.age} className="w-full h-12 p-3.5 rounded-lg border border-neutral-500" />
+                      </div>
+                  </div>
+                  <div className="w-full flex justify-between items-center gap-[24px]">
+                      <div className="basis-1/2">
+                          <label for="password" className="block text-zinc-800 text-sm font-semibold font-['Open Sans'] leading-tight">Password</label>
+                          <input required type="password" id="password" name="password" placeholder="Input your password" onChange={ubahRegister} value={register.password} className="w-full h-12 p-3.5 rounded-lg border border-neutral-500" />
+                      </div>
+                      <div className="basis-1/2">
+                          <label for="passwordConfirm" className="block text-zinc-800 text-sm font-semibold font-['Open Sans'] leading-tight">Password Confirmation</label>
+                          <input required type="password" id="passwordConfirm" name="passwordConfirm" placeholder="Reinput your password" onChange={ubahRegister} value={register.passwordConfirm} className="w-full h-12 p-3.5 rounded-lg border border-neutral-500" />
+                      </div>
+                  </div>
+                  <div className='h-8 block'>
+                    <p className='text-red-600'>
+                      {warning}
+                    </p>
+                  </div>
+                  <div className="flex flex-row-reverse">
+                    <button
+                      type="submit"
+                      className="h-10 text-center rounded-lg bg-orange-500 px-4 py-2 text-sm font-semibold text-white font-['Open Sans'] leading-tight shadow-sm hover:bg-red-800 active:bg-orange-900 ml-3 w-auto"
+                    >
+                      Register
+                    </button>
+                  </div>
+                </form>
               </Dialog.Panel>
             </Transition.Child>
           </div>
