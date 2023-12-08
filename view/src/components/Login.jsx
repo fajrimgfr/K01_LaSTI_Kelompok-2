@@ -13,8 +13,23 @@ export default function Login(props) {
     setLogin(prevValue => ({...prevValue, [name]: value}));
   }
 
-  function submitForm(event) {
+  const  submitForm = async(event)=> {
     event.preventDefault();
+    const email= login.email;
+      const password= login.password;
+      try{
+        console.log("Uploaded");
+        const response = await fetch('http://localhost:3000/api/user',{
+            method: "GET",
+            body: JSON.stringify({
+              email,
+              password
+            }),
+            headers: { "Content-Type": "application/json" },
+        })
+    }catch(error){
+        console.log(error);
+    }
     props.setOpen(false);
   }
 

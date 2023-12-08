@@ -14,13 +14,36 @@ export default function Register(props) {
     setRegister(prevValue => ({...prevValue, [name]: value}));
   }
 
-  function submitForm(event) {
+  const submitForm = async (event)=> {
     event.preventDefault();
     if (register.password !== register.passwordConfirm) {
       setWarning("Konfirmasi password salah.")
     } else {
       setWarning("");
       props.setOpen(false);
+      const email= register.email;
+      const nama= register.name;
+      const phoneNumber= register.phoneNumber;
+      const age= register.age;
+      const password= register.password;
+      const role= "customer";
+      try{
+        console.log("Uploaded");
+        const response = await fetch('http://localhost:3000/api/user',{
+            method: "POST",
+            body: JSON.stringify({
+              email,
+              nama,
+              phoneNumber,
+              age,
+              password,
+              role
+            }),
+            headers: { "Content-Type": "application/json" },
+        })
+    }catch(error){
+        console.log(error);
+    }
     }
   }
 

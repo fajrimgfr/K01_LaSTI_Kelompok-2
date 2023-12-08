@@ -25,6 +25,16 @@ export async function POST(request) {
 
 // Read all kamar
 export async function GET(req) {
-    let user =  await User.find({});
+    const {email, password} = await req.json();
+    let user =  await User.find({
+        "email": email,
+        "password": password
+    });
+    if (user !== undefined && user.role === "customer"){
+        NextResponse.redirect("http://localhost:3000/rooms");
+    } else if (user !== undefined && user.role === "admin"){
+        NextResponse.redirect("http://localhost:3000/rooms");
+    } 
+    console.log(user);
     return NextResponse.json(user);
 }
