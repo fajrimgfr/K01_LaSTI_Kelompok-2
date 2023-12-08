@@ -20,7 +20,7 @@ const Kamar = new mongoose.Schema({
         required: true,
     },
     status: {
-        type: Boolean,
+        type: String,
         required: true,
     },
     fasilitas: {
