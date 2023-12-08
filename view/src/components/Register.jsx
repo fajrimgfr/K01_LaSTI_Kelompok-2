@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faX } from '@fortawesome/free-solid-svg-icons'
 
 export default function Register(props) {
-  const [register, setRegister] = useState({email: "",name: "", phoneNumber: "", age: "", password: "", passwordConfirm: ""})
+  const [register, setRegister] = useState({email: "",name: "", phoneNumber: "", age: "", password: "", passwordConfirm: "",role: "customer"})
   const [warning, setWarning] = useState("");
   const cancelButtonRef = useRef(null)
 
@@ -26,7 +26,7 @@ export default function Register(props) {
       const phoneNumber= register.phoneNumber;
       const age= register.age;
       const password= register.password;
-      const role= "customer";
+      const role= register.role;
       try{
         console.log("Uploaded");
         const response = await fetch('http://localhost:3000/api/user',{

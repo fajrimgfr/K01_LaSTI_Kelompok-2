@@ -1,11 +1,15 @@
+'use client'
 import { Fragment, useRef, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faX } from '@fortawesome/free-solid-svg-icons'
+import { useRouter } from 'next/navigation';
+
 
 export default function Login(props) {
   const [login, setLogin] = useState({email: "", password: ""})
   const cancelButtonRef = useRef(null)
+  const router = useRouter();
 
   function ubahLogin(event) {
     const {name, value} = event.target;
@@ -15,18 +19,21 @@ export default function Login(props) {
 
   const  submitForm = async(event)=> {
     event.preventDefault();
-    const email= login.email;
+      const email= login.email;
       const password= login.password;
       try{
         console.log("Uploaded");
-        const response = await fetch('http://localhost:3000/api/user',{
-            method: "GET",
+        const response = await fetch(`http://localhost:3000/api/${email}`,{
+            method: "POST",
             body: JSON.stringify({
-              email,
               password
             }),
             headers: { "Content-Type": "application/json" },
-        })
+        });
+        const data = await response.json();
+        if(data.redirect){
+          router.push(`http://localhost:3000/${data.redirect}`)
+        }
     }catch(error){
         console.log(error);
     }

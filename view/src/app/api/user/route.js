@@ -8,13 +8,14 @@ dbConnect()
 
 // Create kamar
 export async function POST(request) {
-    const {email, nama, phoneNumber, age, password} = await request.json();
+    const {email, nama, phoneNumber, age, password,role} = await request.json();
     const newUser = new User({
         email, 
         nama, 
         phoneNumber, 
         age, 
-        password
+        password,
+        role
     });
     await newUser.save();
     return NextResponse.json({
@@ -25,16 +26,6 @@ export async function POST(request) {
 
 // Read all kamar
 export async function GET(req) {
-    const {email, password} = await req.json();
-    let user =  await User.find({
-        "email": email,
-        "password": password
-    });
-    if (user !== undefined && user.role === "customer"){
-        NextResponse.redirect("http://localhost:3000/rooms");
-    } else if (user !== undefined && user.role === "admin"){
-        NextResponse.redirect("http://localhost:3000/rooms");
-    } 
-    console.log(user);
+    let user =  await User.find({});
     return NextResponse.json(user);
 }
