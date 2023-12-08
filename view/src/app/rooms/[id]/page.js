@@ -77,7 +77,7 @@ const DetilKamar = async () => {
                 <div className="self-stretch text-justify"><span className="text-neutral-950 text-xl font-semibold font-['Inter'] capitalize">Deskripsi:<br/><br/></span><span className="text-neutral-950 text-base font-normal font-['Inter'] capitalize">Fasilitas : {detailKamar[0].fasilitas} <br/>Luas Kamar : {detailKamar[0].luas}<br/>Posisi Kamar : {detailKamar[0].posisi}</span></div>
               </div>
             </div>
-            <div className="px-4 flex-col gap-[30px] md:gap-[100px] justify-between items-center inline-flex">
+            <div className="px-4 flex-col gap-[30px] md:gap-[30px] justify-between items-center inline-flex">
               <div className='w-full flex flex-col justify-start'>
                 <div className="md:text-right text-black text-opacity-50 text-sm font-normal font-['Poppins'] capitalize">This Room:</div>
                 <div className="md:text-right text-black text-base font-medium font-['Poppins']">{detailKamar[0].status}</div>
@@ -91,8 +91,10 @@ const DetilKamar = async () => {
                   <FontAwesomeIcon className='text-sky-600 w-[10px]' icon={faArrowUpFromBracket} />
                   <div className="text-sky-600 text-sm">Add file</div>
                 </button> */}
+                <form onSubmit={() => daftar(detailKamar)}>
+                <p>Masukkan bukti pembayaran:</p>
                 <input
-                  className='w-full'
+                  className='w-full mb-3'
                   type="file"
                   name="foto"
                   accept='.jpeg, .png, .jpg'
@@ -104,18 +106,19 @@ const DetilKamar = async () => {
                 <p className='text-red-500'>Kamar tidak tersedia</p>}
                 <div className="h-16 w-full flex-col justify-start items-start gap-1 flex">
                   {detailKamar[0].status === "Available" ?
-                  <button onClick={() => daftar(detailKamar)} className="w-full h-16 bg-orange-500 rounded-lg border border-white justify-center items-center flex hover:bg-orange-800 active:bg-orange-900">
+                  <button type='submit' className="w-full h-16 bg-orange-500 rounded-lg border border-white justify-center items-center flex hover:bg-orange-800 active:bg-orange-900">
                     <div className="text-center text-white text-base font-bold font-['Inter'] capitalize">Register</div>
                   </button> :
                 <>
                
-                <button disabled className="w-full h-16 bg-orange-200 rounded-lg border border-white justify-center items-center flex">
+                <button type='submit' disabled className="w-full h-16 bg-orange-200 rounded-lg border border-white justify-center items-center flex">
                   <div className="text-center text-white text-base font-bold font-['Inter'] capitalize">Register</div>
                 </button>
                 </>
                 }
                   
                 </div>
+                </form>
               </div>
             </div>
         </div>
