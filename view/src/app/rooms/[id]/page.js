@@ -1,36 +1,33 @@
-"use client"
+// "use client"
 
-import React, { useState } from 'react'
+import React from 'react'
 import room from '../../../../public/room.jpg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faLocationDot, faCalendarDay } from '@fortawesome/free-solid-svg-icons'
-import Registration from '@/components/Registration'
+import { faLocationDot, faArrowUpFromBracket, faCalendarDay } from '@fortawesome/free-solid-svg-icons'
 import { useParams } from 'next/navigation'
 
-const getDetailKamar = async () => {
-  const params = useParams();
-  const response = await fetch(`http://localhost:3000/api/kamar/${params.id}`, {
-      next: {
-          revalidate: 0,
-      }
-  })
-  // console.log(params.id)
+// const getDetailKamar = async () => {
+//   const params = useParams();
+//   const response = await fetch(`http://localhost:3000/api/kamar/${params.id}`, {
+//       next: {
+//           revalidate: 0,
+//       }
+//   })
+//   // console.log(params.id)
 
-  if (!response.ok) {
-      throw new Error('Failed to fetch data')
-  }
-  return response.json();
-}
+//   if (!response.ok) {
+//       throw new Error('Failed to fetch data')
+//   }
+//   return response.json();
+// }
 
-const detailKamar = await getDetailKamar();
-console.log(detailKamar);
+// const detailKamar = await getDetailKamar();
+// console.log(detailKamar);
 
 const DetilKamar = () => {
-  const [open, setOpen] = useState(false);
 
   return (
     <>
-      <Registration open={open} setOpen={setOpen}  />
       <div className='min-h-[54vh]'>
         <div className="w-full h-[67px] px-[175px] py-6 justify-start items-center gap-10 inline-flex">
           <div><span className="text-black text-base font-normal font-['Inter']">Home &gt; Rooms &gt; </span><span className="text-black text-base font-bold font-['Inter']">Kamar 5A</span></div>
@@ -58,9 +55,14 @@ const DetilKamar = () => {
                   <div className="text-center text-black text-base font-normal font-['Poppins']">Lantai 4</div>
                 </div>
               </div>
-              <div className="h-[148px] w-[283px] flex-col justify-start items-start gap-4 flex">
+              <div className="h-[148px] w-[283px] flex-col justify-start items-end gap-4 flex">
+                <button className="h-[34px] p-2 gap-2 rounded border border-gray-300 justify-between items-center inline-flex">
+                  <FontAwesomeIcon className='text-sky-600 w-[10px]' icon={faArrowUpFromBracket} />
+                  <div className="text-sky-600 text-sm">Add file</div>
+                </button>
                 <div className="h-16 w-full flex-col justify-start items-start gap-1 flex">
-                  <button onClick={() => setOpen(true)} className="w-full h-16 bg-orange-500 rounded-lg border border-white justify-center items-center flex hover:bg-orange-800 active:bg-orange-900">
+                  
+                  <button className="w-full h-16 bg-orange-500 rounded-lg border border-white justify-center items-center flex hover:bg-orange-800 active:bg-orange-900">
                     <div className="text-center text-white text-base font-bold font-['Inter'] capitalize">Register</div>
                   </button>
                 </div>
