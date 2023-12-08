@@ -45,7 +45,7 @@ export async function PUT(request) {
             luas,
             posisi,
             idUser,
-            namaUser
+            namaUser,
         });
         return NextResponse.json({
             status: 200,
