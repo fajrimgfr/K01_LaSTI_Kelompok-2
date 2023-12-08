@@ -5,9 +5,29 @@ import room from '../../../../public/room.jpg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLocationDot, faCalendarDay } from '@fortawesome/free-solid-svg-icons'
 import Registration from '@/components/Registration'
+import { useParams } from 'next/navigation'
+
+const getDetailKamar = async () => {
+  const params = useParams();
+  const response = await fetch(`http://localhost:3000/api/kamar/${params.id}`, {
+      next: {
+          revalidate: 0,
+      }
+  })
+  // console.log(params.id)
+
+  if (!response.ok) {
+      throw new Error('Failed to fetch data')
+  }
+  return response.json();
+}
+
+const detailKamar = await getDetailKamar();
+console.log(detailKamar);
 
 const DetilKamar = () => {
   const [open, setOpen] = useState(false);
+
   return (
     <>
       <Registration open={open} setOpen={setOpen}  />
