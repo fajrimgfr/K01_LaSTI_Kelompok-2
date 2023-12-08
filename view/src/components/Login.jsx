@@ -13,6 +13,11 @@ export default function Login(props) {
     setLogin(prevValue => ({...prevValue, [name]: value}));
   }
 
+  function submitForm(event) {
+    event.preventDefault();
+    props.setOpen(false);
+  }
+
   return (
     <Transition.Root show={props.open} as={Fragment}>
       <Dialog as="div" className="relative z-10" initialFocus={cancelButtonRef} onClose={props.setOpen}>
@@ -39,7 +44,7 @@ export default function Login(props) {
               leaveFrom="opacity-100 translate-y-0 scale-100"
               leaveTo="opacity-0 translate-y-0 scale-95"
             >
-              <Dialog.Panel className="h-[232px] p-[24px] relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all my-8 w-full max-w-[718px]">
+              <Dialog.Panel className="h-[232px] max-h-[300px] p-[24px] relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all my-8 w-full max-w-[718px]">
                 <Dialog.Title as="h3" className="text-gray-800 text-xl font-bold font-['Open Sans'] leading-normal flex justify-between items-center">
                     <div>Login</div>
                     <button
@@ -50,25 +55,26 @@ export default function Login(props) {
                         <FontAwesomeIcon className='w-[12px]' icon={faX} />
                     </button>
                 </Dialog.Title>
-                <div className="w-full flex justify-between items-center my-[24px] gap-[24px]">
-                    <div className="basis-1/2">
-                        <label for="email" className="block text-zinc-800 text-sm font-semibold font-['Open Sans'] leading-tight">Email</label>
-                        <input type="email" id="email" name="email" placeholder="Input your email" onChange={ubahLogin} value={login.email} className="w-full h-12 p-3.5 rounded-lg border border-neutral-500" />
-                    </div>
-                    <div className="basis-1/2">
-                        <label for="password" className="block text-zinc-800 text-sm font-semibold font-['Open Sans'] leading-tight">Password</label>
-                        <input type="password" id="password" name="password" placeholder="Input your password" onChange={ubahLogin} value={login.password} className="w-full h-12 p-3.5 rounded-lg border border-neutral-500" />
-                    </div>
+                <form onSubmit={submitForm}>
+                <div className="w-full flex justify-between items-center mt-[24px] gap-[24px]">
+                  <div className="basis-1/2">
+                    <label for="email" className="block text-zinc-800 text-sm font-semibold font-['Open Sans'] leading-tight">Email</label>
+                      <input required type="email" id="email" name="email" placeholder="Input your email" onChange={ubahLogin} value={login.email} className="w-full h-12 p-3.5 rounded-lg border border-neutral-500" />
+                  </div>
+                  <div className="basis-1/2">
+                    <label for="password" className="block text-zinc-800 text-sm font-semibold font-['Open Sans'] leading-tight">Password</label>
+                    <input required type="password" id="password" name="password" placeholder="Input your password" onChange={ubahLogin} value={login.password} className="w-full h-12 p-3.5 rounded-lg border border-neutral-500" />
+                  </div>
                 </div>
-                <div className="flex flex-row-reverse">
+                <div className="flex flex-row-reverse mt-8">
                   <button
-                    type="button"
+                    type="submit"
                     className="h-10 text-center rounded-lg bg-orange-500 px-4 py-2 text-sm font-semibold text-white font-['Open Sans'] leading-tight shadow-sm hover:bg-red-800 active:bg-orange-900 ml-3 w-auto"
-                    onClick={() => props.setOpen(false)}
                   >
                     Login
                   </button>
                 </div>
+                </form>
               </Dialog.Panel>
             </Transition.Child>
           </div>
