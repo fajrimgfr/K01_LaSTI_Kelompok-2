@@ -2,7 +2,7 @@ import React from 'react'
 import room from '../../public/room.jpg'
 
 function ListKamar(props) {
-  const {noKamar, harga} = props;
+  const {noKamar, harga, tautan} = props;
 
   //Algoritma pengubah rupiah
   const numberFormat = (value) =>
@@ -12,7 +12,7 @@ function ListKamar(props) {
   }).format(value);
 
   return (
-    <a href="/rooms/detil-kamar" className='max-w-[300px] mx-auto h-[292px]'>
+    <a href={tautan} className='max-w-[300px] mx-auto h-[292px]'>
         <img src={room.src} alt="Foto Kamar" className='w-full h-[225px]' />
         <div className="w-full h-[67px] p-2.5 flex flex-col justify-center items-start gap-[3px]">
             <div className="self-stretch h-[47px] flex flex-col justify-center items-center gap-[3px]">
