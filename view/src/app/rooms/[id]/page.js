@@ -1,6 +1,6 @@
 "use client"
 
-import React from 'react'
+import React, { useState } from 'react'
 import room from '../../../../public/room.jpg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLocationDot, faArrowUpFromBracket, faCalendarDay } from '@fortawesome/free-solid-svg-icons'
@@ -20,6 +20,62 @@ const getDetailKamar = async () => {
   }
   return response.json();
 }
+
+const daftar = async (detailKamar) => {
+  // const params1 = useParams();
+  try {
+    // Assuming you have a state to hold the form data
+    // const [kamar, setKamar] = useState({
+    //   noKamar: "",
+    //   foto: "",
+    //   harga: 0,
+    //   lantai: "",
+    //   status: "",
+    //   fasilitas: "",
+    //   luas: "",
+    //   posisi: "",
+    //   idUser: "",
+    //   namaUser: "",
+    // });
+
+    // Fetch the current room details
+    // const response = await fetch(`http://localhost:3000/api/kamar/${params1.id}`);
+    // const detailKamar = await response.json();
+
+    // Modify the kamar state with the changes
+    // const detailKamar1 = await getDetailKamar();
+    // setKamar({
+    //   ...kamar,
+    //   noKamar : detailKamar[0].noKamar,
+    //   foto : detailKamar[0].foto,
+    //   harga : detailKamar[0].harga,
+    //   lantai : detailKamar[0].lantai,
+    //   status : "Unavailable",
+    //   fasilitas : detailKamar[0].fasilitas,
+    //   luas : detailKamar[0].luas,
+    //   posisi : detailKamar[0].posisi,
+    //   idUser : detailKamar[0].idUser,
+    //   namaUser : detailKamar[0].namaUser,
+    // });
+
+    // Perform the PUT request
+    detailKamar.status = "Unavailable";
+    const updateResponse = await fetch(`http://localhost:3000/api/kamar/${detailKamar._id}`, {
+      method: "PUT",
+      body: JSON.stringify(detailKamar),
+      headers: { "Content-Type": "application/json" },
+    });
+
+    if (!updateResponse.ok) {
+      throw new Error('Failed to update data');
+    }
+
+    // Handle the response accordingly
+    console.log("Updated successfully");
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 const DetilKamar = async () => {
   const detailKamar = await getDetailKamar();
@@ -61,17 +117,25 @@ const DetilKamar = async () => {
                   <div className="text-center text-black text-base font-normal font-['Poppins']">Lantai {detailKamar[0].lantai}</div>
                 </div>
               </div>
-              <div className="h-[148px] w-[283px] flex-col justify-start items-end gap-4 flex">
-                <button className="h-[34px] p-2 gap-2 rounded border border-gray-300 justify-between items-center inline-flex">
+              <div className="min-h-[148px] w-[283px] flex-col justify-start items-end flex">
+                {/* <button className="h-[34px] p-2 gap-2 rounded border border-gray-300 justify-between items-center inline-flex">
                   <FontAwesomeIcon className='text-sky-600 w-[10px]' icon={faArrowUpFromBracket} />
                   <div className="text-sky-600 text-sm">Add file</div>
-                </button>
+                </button> */}
+                <input
+                  className='w-full'
+                  type="file"
+                  name="foto"
+                  accept='.jpeg, .png, .jpg'
+                  required
+                />
+                <br/>
                 {detailKamar[0].status === "Available" ?
                 <></> :
                 <p className='text-red-500'>Kamar tidak tersedia</p>}
                 <div className="h-16 w-full flex-col justify-start items-start gap-1 flex">
                   {detailKamar[0].status === "Available" ?
-                  <button className="w-full h-16 bg-orange-500 rounded-lg border border-white justify-center items-center flex hover:bg-orange-800 active:bg-orange-900">
+                  <button onClick={() => daftar(detailKamar)} className="w-full h-16 bg-orange-500 rounded-lg border border-white justify-center items-center flex hover:bg-orange-800 active:bg-orange-900">
                     <div className="text-center text-white text-base font-bold font-['Inter'] capitalize">Register</div>
                   </button> :
                 <>
