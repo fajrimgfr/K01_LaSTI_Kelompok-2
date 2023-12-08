@@ -31,7 +31,10 @@ const Navbar = () => {
         </div>
         <div className='hidden lg:flex justify-between items-center gap-[48px]'>
           <a href="/" className="text-center w-20 text-white hover:font-bold text-base font-['Inter']">Home</a>
-          <a href="/rooms" className="text-center w-20 text-white hover:font-bold text-base font-['Inter']">Rooms</a>
+          {isLogin ? 
+            <a href="/rooms" className="text-center w-20 text-white hover:font-bold text-base font-['Inter']">Rooms</a> :
+            <></>
+          }
           <a href="/" className="text-center w-20 whitespace-nowrap text-white hover:font-bold text-base font-['Inter']">Contact Us</a>
           <div className='flex justify-between items-center gap-[16px]'>
             {!isLogin ? 
@@ -78,18 +81,21 @@ const Navbar = () => {
                     </a>
                   )}
                 </Menu.Item>
-                <Menu.Item>
-                  {({ active }) => (
-                    <a
-                      href="/rooms"
-                      className={`${
-                        active ? 'bg-orange-500 text-white' : 'text-gray-900'
-                      } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
-                    >
-                      Room
-                    </a>
-                  )}
-                </Menu.Item>
+                {isLogin ? 
+                  <Menu.Item>
+                    {({ active }) => (
+                      <a
+                        href="/rooms"
+                        className={`${
+                          active ? 'bg-orange-500 text-white' : 'text-gray-900'
+                        } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                      >
+                        Room
+                      </a>
+                    )}
+                  </Menu.Item> :
+                  <></>
+                }
                 <Menu.Item>
                   {({ active }) => (
                     <a

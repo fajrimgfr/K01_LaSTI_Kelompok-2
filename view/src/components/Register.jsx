@@ -10,28 +10,23 @@ export default function Register(props) {
 
   function ubahRegister(event) {
     const {name, value} = event.target;
-    console.log(value.substring(value.length - 1));
+    console.log(value.substring(value.length - 1).charCodeAt(0));
     
     // console.log(value.substring(value.length() - 1));
 
-    // if (name === phoneNumber) {
-    //   if (value.substring(value.length() - 1).charCodeAt(0) >= 48 && value.substring(value.length() - 1).charCodeAt(0) <= 57) {
-    //     setRegister(prevValue => ({...prevValue, [name]: value}));
-    //     setWarning("")
-    //   } else {
-    //     setWarning("Hanya menerima input angka.")
-    //   }
-    // } else if (name === age) {
-    //   if (value.substring(value.length() - 1).charCodeAt(0) >= 48 && value.substring(value.length() - 1).charCodeAt(0) <= 57) {
-    //     setRegister(prevValue => ({...prevValue, [name]: value}));
-    //     setWarning("")
-    //   } else {
-    //     setWarning("Hanya menerima input angka.")
-    //   }
-    // } else {
-    //   setRegister(prevValue => ({...prevValue, [name]: value}));
-    // }
-    setRegister(prevValue => ({...prevValue, [name]: value}));
+    if (name === "phoneNumber" || name === "age") {
+      if (value.substring(value.length - 1).charCodeAt(0) >= 48 && value.substring(value.length - 1).charCodeAt(0) <= 57) {
+        setRegister(prevValue => ({...prevValue, [name]: value}));
+        setWarning("")
+        console.log("duh")
+      } else {
+        setWarning("Hanya menerima input angka.")
+        console.log("yeh")
+      }
+    } else {
+      setRegister(prevValue => ({...prevValue, [name]: value}));
+    }
+    // setRegister(prevValue => ({...prevValue, [name]: value}));
   }
 
   const submitForm = async (event)=> {

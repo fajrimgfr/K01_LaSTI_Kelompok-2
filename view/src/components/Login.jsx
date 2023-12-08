@@ -36,7 +36,8 @@ export default function Login(props) {
           router.push(`http://localhost:3000/${data.redirect}`)
           props.setIsLogin(true);
           props.setOpen(false);
-          setWarning("Email atau password salah.");
+          setLogin({email: "", password: ""})
+          setWarning("");
         }else{
           if(data.message === "email salah") {
             setWarning("Email atau password salah.");
