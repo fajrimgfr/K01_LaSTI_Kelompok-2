@@ -39,7 +39,7 @@ export async function POST(req) {
             });
         } else if (user[0] !== undefined && user[0].role === "admin"){
             return NextResponse.json({
-                redirect: "/rooms",
+                redirect: "/admin",
                 role: "admin",
             });
         } 

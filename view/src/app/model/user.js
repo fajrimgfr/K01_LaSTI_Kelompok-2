@@ -12,7 +12,7 @@ const User = new mongoose.Schema({
         required: true,
     },
     phoneNumber: {
-        type: Number,
+        type: String,
         required: true,
     },
     age: {
