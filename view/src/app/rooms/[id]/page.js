@@ -24,45 +24,12 @@ const getDetailKamar = async () => {
 const daftar = async (detailKamar) => {
   // const params1 = useParams();
   try {
-    // Assuming you have a state to hold the form data
-    // const [kamar, setKamar] = useState({
-    //   noKamar: "",
-    //   foto: "",
-    //   harga: 0,
-    //   lantai: "",
-    //   status: "",
-    //   fasilitas: "",
-    //   luas: "",
-    //   posisi: "",
-    //   idUser: "",
-    //   namaUser: "",
-    // });
-
-    // Fetch the current room details
-    // const response = await fetch(`http://localhost:3000/api/kamar/${params1.id}`);
-    // const detailKamar = await response.json();
-
-    // Modify the kamar state with the changes
-    // const detailKamar1 = await getDetailKamar();
-    // setKamar({
-    //   ...kamar,
-    //   noKamar : detailKamar[0].noKamar,
-    //   foto : detailKamar[0].foto,
-    //   harga : detailKamar[0].harga,
-    //   lantai : detailKamar[0].lantai,
-    //   status : "Unavailable",
-    //   fasilitas : detailKamar[0].fasilitas,
-    //   luas : detailKamar[0].luas,
-    //   posisi : detailKamar[0].posisi,
-    //   idUser : detailKamar[0].idUser,
-    //   namaUser : detailKamar[0].namaUser,
-    // });
 
     // Perform the PUT request
-    detailKamar.status = "Unavailable";
-    const updateResponse = await fetch(`http://localhost:3000/api/kamar/${detailKamar._id}`, {
+    detailKamar[0].status = "Unavailable";
+    const updateResponse = await fetch(`http://localhost:3000/api/kamar/${detailKamar[0]._id}`, {
       method: "PUT",
-      body: JSON.stringify(detailKamar),
+      body: JSON.stringify(detailKamar[0]),
       headers: { "Content-Type": "application/json" },
     });
 
@@ -75,6 +42,8 @@ const daftar = async (detailKamar) => {
   } catch (error) {
     console.log(error);
   }
+
+  window.location.reload();
 };
 
 const DetilKamar = async () => {

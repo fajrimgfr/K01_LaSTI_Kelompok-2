@@ -17,7 +17,7 @@ const getKamars = async () => {
 
 async function Rooms() {
     const kamars = await getKamars();
-    console.log(kamars);
+    // console.log(kamars);
 
   return (
     <div className='min-h-[54vh]'>
