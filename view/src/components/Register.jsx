@@ -83,7 +83,7 @@ export default function Register(props) {
                 <div className="flex flex-row-reverse">
                   <button
                     type="button"
-                    className="h-10 text-center rounded-lg bg-orange-500 px-4 py-2 text-sm font-semibold text-white text-sm font-bold font-['Open Sans'] leading-tight shadow-sm hover:bg-red-800 active:bg-orange-900 ml-3 w-auto"
+                    className="h-10 text-center rounded-lg bg-orange-500 px-4 py-2 text-sm font-semibold text-white font-['Open Sans'] leading-tight shadow-sm hover:bg-red-800 active:bg-orange-900 ml-3 w-auto"
                     onClick={() => props.setOpen(false)}
                   >
                     Register
