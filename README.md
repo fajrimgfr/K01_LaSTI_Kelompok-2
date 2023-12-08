@@ -4,4 +4,4 @@
 
 ### 1. Git clone repository ini
 
-## 2. Change directory ke view
+### 2. Change directory ke view
