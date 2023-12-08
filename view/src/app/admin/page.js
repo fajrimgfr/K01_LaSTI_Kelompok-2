@@ -1,3 +1,5 @@
+import AddKamarModal from "@/components/AddKamarModal";
+import TableKamar from "@/components/TableKamar";
 import React from "react";
 
 const getKamars = async () => {
@@ -19,19 +21,8 @@ export default async function page() {
   return (
     <div className="flex justify-center items-center">
       <div className="container">
-        <ul className="flex justify-between">
-          <li>No. Kamar</li>
-          <li>Harga</li>
-          <li>posisi</li>
-        </ul>
-        {kamars.length > 0 &&
-          kamars.map((kamar) => (
-            <ul className="flex justify-between">
-              <li>{kamar.noKamar}</li>
-              <li>{kamar.harga}</li>
-              <li>{kamar.noKamar}</li>
-            </ul>
-          ))}
+        <AddKamarModal />
+        <TableKamar />
       </div>
     </div>
   );
