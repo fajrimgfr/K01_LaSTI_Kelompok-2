@@ -1,0 +1,32 @@
+// Import library
+const mongoose = require("mongoose");
+
+// Schema Kamar
+const User = new mongoose.Schema({
+    email: {
+        type: String,
+        required: true,
+    },
+    nama: {
+        type: String,
+        required: true,
+    },
+    phoneNumber: {
+        type: Number,
+        required: true,
+    },
+    age: {
+        type: Number,
+        required: true,
+    },
+    password: {
+        type: String,
+        required: true,
+    }
+}, {
+    timestamps: true
+});
+
+// Export
+mongoose.models = {}
+module.exports = mongoose.model("user", User)

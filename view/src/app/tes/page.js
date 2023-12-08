@@ -65,7 +65,6 @@ function App() {
         <label htmlFor="file-upload" className='custom-file-upload'>
           <img src={newKamar.foto } alt="" />
         </label>
-
         <input 
           type="file"
           name="foto"
