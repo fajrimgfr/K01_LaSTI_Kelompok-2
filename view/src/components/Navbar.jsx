@@ -5,15 +5,23 @@ import Register from './Register';
 import { Menu, Transition } from '@headlessui/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { useRouter } from 'next/navigation';
 
 const Navbar = () => {
   const [isLogin, setIsLogin] = useState(false);
   const [open, setOpen] = useState(false);
   const [open2, setOpen2] = useState(false);
+  const router = useRouter();
+
+  function signOut() {
+    setIsLogin(false)
+    router.push(`http://localhost:3000/`)
+  }
+
   return (
     <>
       <Register open={open2} setOpen={setOpen2} />
-      <Login open={open} setOpen={setOpen}  />
+      <Login open={open} setOpen={setOpen} setIsLogin={setIsLogin}  />
       <div className='h-[9vh] bg-neutral-950 flex justify-between items-center px-[80px] lg:px-[165px]'>
         <div className='flex justify-center items-center'>
           <a href="/" className='bg-white rounded-xl w-[140px] p-0 font-bold flex text-2xl justify-center items-center'>
@@ -35,7 +43,7 @@ const Navbar = () => {
                 Login
               </button>
             </> :
-            <button onClick={() => setIsLogin(false)} className="w-[110px] text-center bg-neutral-950  border border-white py-0.5 rounded-lg text-white hover:text-black hover:bg-white text-base font-normal font-['Inter']">
+            <button onClick={signOut} className="w-[110px] text-center bg-neutral-950  border border-white py-0.5 rounded-lg text-white hover:text-black hover:bg-white text-base font-normal font-['Inter']">
               Sign out
             </button>}
             
@@ -124,7 +132,7 @@ const Navbar = () => {
                 <Menu.Item>
                   {({ active }) => (
                     <button
-                      onClick={() => setIsLogin(false)}
+                      onClick={signOut}
                       className={`${
                         active ? 'bg-orange-500 text-white' : 'text-gray-900'
                       } group flex w-full items-center rounded-md px-2 py-2 text-sm`}

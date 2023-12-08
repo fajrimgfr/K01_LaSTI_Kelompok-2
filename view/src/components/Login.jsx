@@ -7,9 +7,10 @@ import { useRouter } from 'next/navigation';
 
 
 export default function Login(props) {
-  const [login, setLogin] = useState({email: "", password: ""})
-  const cancelButtonRef = useRef(null)
+  const [login, setLogin] = useState({email: "", password: ""});
+  const cancelButtonRef = useRef(null);
   const router = useRouter();
+  const [warning, setWarning] = useState("");
 
   function ubahLogin(event) {
     const {name, value} = event.target;
@@ -33,11 +34,17 @@ export default function Login(props) {
         const data = await response.json();
         if(data.redirect){
           router.push(`http://localhost:3000/${data.redirect}`)
+          props.setIsLogin(true);
+          props.setOpen(false);
+          setWarning("Email atau password salah.");
+        }else{
+          if(data.message === "email salah") {
+            setWarning("Email atau password salah.");
+          }
         }
     }catch(error){
         console.log(error);
     }
-    props.setOpen(false);
   }
 
   return (
@@ -87,6 +94,9 @@ export default function Login(props) {
                     <label for="password" className="block text-zinc-800 text-sm font-semibold font-['Open Sans'] leading-tight">Password</label>
                     <input required type="password" id="password" name="password" placeholder="Input your password" onChange={ubahLogin} value={login.password} className="w-full h-12 p-3.5 rounded-lg border border-neutral-500" />
                   </div>
+                </div>
+                <div className='h-1'>
+                  <p className='text-red-500'>{warning}</p>
                 </div>
                 <div className="flex flex-row-reverse mt-8">
                   <button
