@@ -8,7 +8,7 @@ export default function AddKamarModal() {
     foto: "",
     harga: 0,
     lantai: "",
-    status: "available",
+    status: true,
     fasilitas: "",
     luas: "",
     posisi: "",
