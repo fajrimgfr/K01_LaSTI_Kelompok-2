@@ -24,13 +24,16 @@ const Navbar = (props) => {
       <Login open={open} setOpen={setOpen} setIsLogin={props.setIsLogin}  />
       <div className='h-[9vh] bg-neutral-950 flex justify-between items-center px-[80px] lg:px-[165px]'>
         <div className='flex justify-center items-center'>
-          <a href="/" className='bg-white rounded-xl w-[140px] p-0 font-bold flex text-2xl justify-center items-center'>
+          <div className='bg-white rounded-xl w-[140px] p-0 font-bold flex text-2xl justify-center items-center'>
             <span className='rounded-xl basis-1/2 bg-orange-500 text-white text-center pb-0.5' >Tech</span>
             <span className='basis-1/2 text-center pb-0.5'>Nest</span>
-          </a>
+          </div>
         </div>
         <div className='hidden lg:flex justify-between items-center gap-[48px]'>
-          <a href="/" className="text-center w-20 text-white hover:font-bold text-base font-['Inter']">Home</a>
+          {!props.isLogin ? 
+            <a href="/" className="text-center w-20 text-white hover:font-bold text-base font-['Inter']">Home</a> :
+            <></>
+          }
           {props.isLogin ? 
             <a href="/rooms" className="text-center w-20 text-white hover:font-bold text-base font-['Inter']">Rooms</a> :
             <></>
@@ -69,6 +72,7 @@ const Navbar = (props) => {
           >
             <Menu.Items className="absolute right-0 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-none">
               <div className="px-1 py-1 ">
+              {!props.isLogin ? 
                 <Menu.Item>
                   {({ active }) => (
                     <a
@@ -80,7 +84,9 @@ const Navbar = (props) => {
                       Home
                     </a>
                   )}
-                </Menu.Item>
+                </Menu.Item> :
+                <></>
+              }
                 {props.isLogin ? 
                   <Menu.Item>
                     {({ active }) => (
