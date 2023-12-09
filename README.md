@@ -14,10 +14,7 @@
 
 ## **C. Pedoman Penggunaan**
 
-### **1. Penggunaan Hasil Deployment**
-Cukup kunjungi pranala berikut : [technest](https://www.example.com)
-
-### **2. Penggunaan di Lokal Komputer**
+### **1. Penggunaan di Lokal Komputer**
 - Buat sebuah folder di lokal komputer
 - Copy code berikut `git clone https://github.com/fajrimgfr/K01_LaSTI_Kelompok-2.git`
 - Buka command prompt di lokal komputer, lalu pindah *directory* ke folder yang telah dibuat sebelumnya dengan mengetikkan `cd {path folder yang dibuat sebelumnya}`
@@ -27,7 +24,7 @@ Cukup kunjungi pranala berikut : [technest](https://www.example.com)
 - Jalankan *code* dengan mengetikkan `npm run dev`
 - Buka browser pada `http://localhost:3000`
 
-### **3. Catatan Tambahan**
+### **2. Catatan Tambahan**
 Untuk penggunaan dan dokumentasi lengkap halaman-halaman yang bisa diakses pada *website* TechNest ini dapat dilihat pada dokumen yang dilampirkan secara bersamaan dengan pranala github ini
 
 ## **D. Desain API**
