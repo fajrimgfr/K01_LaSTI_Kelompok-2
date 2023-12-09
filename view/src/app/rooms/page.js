@@ -31,14 +31,6 @@ async function Rooms() {
                 <ListKamar foto={kamar.foto} noKamar={kamar.noKamar} harga={kamar.harga} key={kamar._id} tautan={`/rooms/${kamar._id}`} />
             ))}
         </div>
-        <div className="h-[87px] px-[175px] py-6 justify-center sm:justify-end items-center gap-4 flex">
-            <button className="w-[100px] px-2.5 py-1 rounded-lg border border-neutral-400 text-center">
-                <p className="text-neutral-950 text-base font-normal font-['Inter'] capitalize">Prev</p>
-            </button>
-            <button className="w-[100px] px-2.5 py-1 rounded-lg border border-neutral-400 text-center">
-                <p className="text-neutral-950 text-base font-normal font-['Inter'] capitalize">Next</p>
-            </button>
-        </div>
     </div>
     </>
   )

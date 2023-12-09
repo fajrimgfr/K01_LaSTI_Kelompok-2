@@ -39,8 +39,7 @@ export default function Home() {
           </AccordionSummary>
           <AccordionDetails>
             <Typography>
-              Nulla facilisi. Phasellus sollicitudin nulla et quam mattis feugiat.
-              Aliquam eget maximus est, id dignissim quam.
+            TechNest Dormitory is a revolutionary online platform designed to simplify and streamline the process of dormitory reservations. We provide a convenient and efficient solution for individuals seeking accommodation in dormitories. Our user-friendly website allows users to explore available dormitory options, make reservations, and manage their bookings seamlessly.
             </Typography>
           </AccordionDetails>
         </Accordion>
@@ -56,8 +55,7 @@ export default function Home() {
           </AccordionSummary>
           <AccordionDetails>
             <Typography>
-              Nulla facilisi. Phasellus sollicitudin nulla et quam mattis feugiat.
-              Aliquam eget maximus est, id dignissim quam.
+            Renting a dormitory through TechNest is a straightforward process. Simply visit our website, browse through the list of available dormitories, and select the one that suits your preferences. Then simply click register.
             </Typography>
           </AccordionDetails>
         </Accordion>
@@ -73,8 +71,7 @@ export default function Home() {
           </AccordionSummary>
           <AccordionDetails>
             <Typography>
-              Nulla facilisi. Phasellus sollicitudin nulla et quam mattis feugiat.
-              Aliquam eget maximus est, id dignissim quam.
+            TechNest Dormitory accepts various payment methods to ensure flexibility for our users. You can make secure payments using credit cards, debit cards, or other preferred online payment options. Our payment process is designed to be seamless and secure, providing you with a hassle-free experience.
             </Typography>
           </AccordionDetails>
         </Accordion>
@@ -90,8 +87,7 @@ export default function Home() {
           </AccordionSummary>
           <AccordionDetails>
             <Typography>
-              Nulla facilisi. Phasellus sollicitudin nulla et quam mattis feugiat.
-              Aliquam eget maximus est, id dignissim quam.
+            Getting in touch with us is easy! For any inquiries, concerns, or assistance, you can reach out to our dedicated customer support team via email at support@technestdorm.com. We strive to respond promptly and provide the necessary support to make your experience with TechNest enjoyable.
             </Typography>
           </AccordionDetails>
         </Accordion>
