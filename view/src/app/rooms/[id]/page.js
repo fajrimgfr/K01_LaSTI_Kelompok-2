@@ -71,7 +71,7 @@ const DetilKamar = async () => {
                 <div className="w-[0px] self-stretch origin-top-left rotate-[3.48deg] border" />
               </div> */}
             <div className='flex justify-start'>
-              <img className="w-80 h-[240px] hidden xl:block" src={room.src} />
+              <img className="w-80 h-[240px] hidden xl:block" src={detailKamar[0].foto} />
               {/* </div> */}
               <div className="px-4 flex-col justify-start items-start gap-6 inline-flex">
                 <div className="self-stretch text-black text-2xl font-bold font-['Inter']">Kamar {detailKamar[0].noKamar}</div>
