@@ -10,7 +10,7 @@ const Kamar = new mongoose.Schema(
     },
     foto: {
       type: String,
-      required: true,
+      required: false,
     },
     harga: {
       type: Number,

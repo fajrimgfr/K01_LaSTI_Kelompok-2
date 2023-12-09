@@ -76,7 +76,7 @@ export default function AddKamarModal() {
   function setStatus(event) {
     const {name, value} = event.target;
     if (value !== "") {
-      setEditedKamar((prevValue) => ({ ...prevValue, [name]: value }))
+      setNewKamar((prevValue) => ({ ...prevValue, [name]: value }))
     }
   }
 
