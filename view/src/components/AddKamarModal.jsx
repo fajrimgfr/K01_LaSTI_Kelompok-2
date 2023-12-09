@@ -73,6 +73,13 @@ export default function AddKamarModal() {
     });
   }
 
+  function setStatus(event) {
+    const {name, value} = event.target;
+    if (value !== "") {
+      setEditedKamar((prevValue) => ({ ...prevValue, [name]: value }))
+    }
+  }
+
   return (
     <AlertDialog>
       <AlertDialogTrigger>
@@ -108,7 +115,11 @@ export default function AddKamarModal() {
                   <input required type="text" name="posisi" placeholder="Masukkan posisi" onChange={(e) => setNewKamar({ ...newKamar, posisi: e.target.value })} className="flex py-1 px-2 border-2 rounded-md w-full" />
                 </label>
                 <label htmlFor="status">
-                  <input required type="text" name="status" placeholder="Masukkan status" onChange={(e) => setNewKamar({ ...newKamar, status: e.target.value })} className="flex py-1 px-2 border-2 rounded-md w-full" />
+                  <select required name="status" placeholder="Masukkan status" onChange={setStatus} className="flex py-1 px-2 border-2 rounded-md w-full">
+                    <option value="">Select One</option>
+                    <option value="Available">Available</option>
+                    <option value="Unavailable">Unavailable</option>
+                  </select>
                 </label>
               </div>
               <div className="mt-5 grid grid-cols-2 gap-2">
